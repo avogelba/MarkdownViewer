@@ -53,6 +53,25 @@ namespace MarkdownViewer
 
             return viewerControl;
         }
+        //Added 1.0.0.1
+        public override void CloseWindow(object control)
+        {
+            controls.Remove(control);
+        }
+        
+        //Added 1.0.0.1 as dummy
+        public override int NotificationReceived(object control, int message, int wParam, int lParam)
+        {
+            // do nothing
+            return 0;
+        }
+        
+        //Added 1.0.0.1 as dummy
+        public override ListerResult SendCommand(object control, ListerCommand command, ShowFlags parameter)
+        {
+           
+            return ListerResult.OK;
+        }
     }
 
 }

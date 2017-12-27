@@ -16,9 +16,11 @@ namespace MarkdownViewer
     {
 
         private Encoding encoding = Encoding.UTF8;
+        //Changed 1.0.0.1:
         private const String CONTAINER_HTML = "<!DOCTYPE html>" +
             "<html>" +
             "<head>" +
+            "<base href=\"file://localhost/{2}/\" />" +
             "  <meta charset=\"utf-8\">" +
             "  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />" +
             "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=yes\">" + 
@@ -49,9 +51,18 @@ namespace MarkdownViewer
                 var pipline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
                 String markdownHTML = Markdown.ToHtml(markdownContent, pipline);
                 String style = Properties.Resources.github_markdown2;
-                String html = String.Format(CONTAINER_HTML, markdownHTML, style);
+                String html = String.Format(CONTAINER_HTML, markdownHTML, style, Path.GetDirectoryName(fileName)); //Changed 1.0.0.1 to fix local image problem
+                //Next lines additionally added with 1.0.0.1
+                var uri = new Uri(fileName);
+                this.webBrowser1.Url = uri;
+                this.webBrowser1.Navigate(uri);
+                if (this.webBrowser1.Document != null)
+                {
+                    this.webBrowser1.Document.Write(string.Empty);
+                }
                 this.webBrowser1.DocumentText = html;
             }
         }
+
     }
 }
