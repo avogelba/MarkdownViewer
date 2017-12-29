@@ -35,19 +35,20 @@
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 22);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(406, 361);
+            this.webBrowser1.Size = new System.Drawing.Size(447, 522);
             this.webBrowser1.TabIndex = 0;
-            
             // 
             // ViewerControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.Controls.Add(this.webBrowser1);
             this.Name = "ViewerControl";
-            this.Size = new System.Drawing.Size(406, 361);
+            this.Size = new System.Drawing.Size(447, 522);
             this.ResumeLayout(false);
 
         }
